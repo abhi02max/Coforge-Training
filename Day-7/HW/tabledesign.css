@@ -1,0 +1,82 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background: #ffffff;
+	color: #111827;
+}
+
+.page {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 36px 24px 64px;
+}
+
+.intro {
+	margin-bottom: 24px;
+}
+
+.question {
+	margin: 0 0 10px;
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.intro p:last-child {
+	margin: 0;
+	color: #374151;
+	font-size: 1.05rem;
+}
+
+.table-wrap {
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+}
+
+.timetable {
+	width: min(720px, 100%);
+	border-collapse: collapse;
+	background: #fff;
+	box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.timetable th,
+.timetable td {
+	border: 1px solid #9f9f9f;
+	padding: 10px 12px;
+	text-align: center;
+}
+
+.title-row th {
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 1rem;
+	background: #ffffff;
+}
+
+.hours {
+	width: 16%;
+	font-weight: 700;
+}
+
+.day-head th {
+	font-weight: 700;
+}
+
+.break-row td {
+	font-weight: 700;
+	background: #ffffff;
+}
+
+.project {
+	font-weight: 600;
+}
+
+@media (max-width: 768px) {
+	.table-wrap {
+		overflow-x: auto;
+	}
+}
