@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Form JS</title>
+<script type = "text/javascript">
+ function passwordStrength(){
+	 var password = document.getElementById("pwd").value;
+	 var req = new XMLHttpRequest();
+	 req.open("GET","http://localhost:8022/MyWebApplication/PasswordStrengthServlet?pwd="+password,true);
+	 req.onreadystatechange=function(){
+		 //alert(req.responseText);
+		 if(req.readyState==4 && req.status==200){
+			 document.getElementById("result").innerHTML = req.responseText;
+		 }
+	 };
+	 req.send();
+ }
+ 
+ function emailCheck(){
+	 var email = document.getElementById("email").value;
+	 var req = new XMLHttpRequest();
+	 req.open("GET","http://localhost:8022/MyWebApplication/EmailCheckServlet?email="+email,true);
+	 req.onreadystatechange=function(){
+		 //alert(req.responseText);
+		 if(req.readyState==4 && req.status==200){
+			 document.getElementById("result1").innerHTML = req.responseText;
+		 }
+	 };
+	 req.send();
+ }
+ 
+</script>
+
+</head>
+<body>
+<table border = "1", cellpadding = "10", width = "60%">
+
+<tr>
+<th colspan = "2" > Registration Form </th>
+</tr>
+<tr>
+<td>Student Name</td><td><input type = "text"></td>
+</tr>
+<tr>
+<td>Father's Name</td><td><input type = "text"></td>
+</tr>
+<tr>
+<td>Mother's Name</td><td><input type = "text"></td>
+</tr>
+<tr>
+<td>Date of Birth</td><td><input type = "date"></td>
+</tr>
+<tr>
+<td>Gender</td>
+<td>
+<label><input type = "radio",  name = "gender", value = "male">Male</label>
+<label><input type = "radio",  name = "gender", value = "female">Female</label>
+</td>
+</tr>
+<tr>
+<td>Email ID</td><td><input type="email" value="Enter your email"
+				onfocus="this.value = ''" id='email' onblur="emailCheck()"><span id = "result1"></span></td>
+</tr>
+<tr>
+<td>Password</td><td><input type = "password" id="pwd" onkeyup="passwordStrength()"><span id = "result"></span></td>
+</tr>
+<tr>
+<td>Mobile No.</td><td><input type = "tel"></td>
+</tr>
+<tr>
+<td>Address</td><td><textarea rows = "3"></textarea></td>
+</tr>
+<tr>
+<td>State</td><td><input type = "text"></td>
+</tr>
+<tr>
+<td>City</td><td><input type = "text"></td>
+</tr>
+<tr>
+<td></td><td><input type = "Submit", value = "Submit"></td>
+</tr>
+
+</table>
+</body>
+</html>

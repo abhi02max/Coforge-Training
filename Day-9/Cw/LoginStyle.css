@@ -1,0 +1,20 @@
+@charset "ISO-8859-1";
+
+.Logindiv {
+	border: 2px solid violet;
+	width: 250px;
+	color: blue;
+	border-radius: 15px;
+	position: absolute;
+	top: 40%;
+	left: 25%;
+}
+
+.LoginButton {
+	border: None;
+	Background: pink;
+	color: black;
+	border-radius: 17px;
+	cursor: pointer;
+}
+

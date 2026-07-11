@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Java Script Assignment</title>
+<style type="text/css">
+.bgcolor{
+
+	background-color : blue;
+
+}
+
+</style>
+<script type="text/javascript">
+
+function changeText(){
+	const myElement = document.getElementById("myH1");
+	myElement.textContent="Welcome to JavaScript DOM";
+}
+
+function changeBgColor(){
+	document.body.style.backgroundColor="lightblue";	
+	
+}
+
+function changeImage(){
+	const myElement = document.getElementById("myimage");
+	myElement.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwxfqZ6_fb9hAgLDpgPiFKY1XiMvt1Vm_q7ifQEgPh2g&s=10";
+	myElement.alt = "moon image";
+}
+
+function hideText(){
+	const myElement = document.getElementById("mypara");
+	myElement.style.visibility="hidden";
+}
+
+function showText(){
+	const myElement = document.getElementById("mypara");
+	myElement.style.visibility="visible";
+}
+
+var current = 20;
+
+function changeFontSize(){
+	const myElement = document.getElementById("mypara2");
+	current += 5;
+	myElement.style.fontSize = current + "px"
+}
+
+
+</script>
+
+</head>
+<body>
+			  
+<button onclick="changeText()">Change Text</button>
+<button onclick="changeBgColor()">Change Background Color</button>
+<button onclick="changeImage()">Change Image</button>
+<button onclick="hideText()">Hide Paragraph</button>
+<button onclick="showText()">Show Paragraph</button>
+<button onclick="changeFontSize()">Change Font Size</button><br>
+
+<h1 id = "myH1">DOM Manipulation</h1>
+<p id = "mypara">Paragraph for hide and show text.</p>
+<p id = "mypara2">The font size of this paragraph will increase when the button is pressed.</p>
+<img src = "https://media.istockphoto.com/id/1300645794/photo/abstract-weather-concept-sun-in-serene-sky-with-flare-effect.jpg?s=612x612&w=0&k=20&c=b7KiuUMGvICq6FgnjfX_e0eydTWWBN2VVI9g8Jrp3Ag="
+			  alt="sun image" height="200" width="250" id="myimage">
+
+</body>
+</html>

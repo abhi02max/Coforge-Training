@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Factorial Table</title>
+
+<script type = "text/javascript">
+function getFactorialTable(){
+	var n = parseInt(document.getElementById("n").value);
+	var fact = 1, result = "";
+	
+	result = "<table border='1' width='60%'>";
+	result += "<tr><th>Number</th><th>Factorial</th></tr>";
+	
+	for(let i = 1; i <= n; i++) {
+		fact = fact * i;
+		result += "<tr><td>" + i + "</td><td>" + fact + "</td></tr>";
+	}
+	result += "</table>";
+	
+	document.getElementById("ResultDiv").innerHTML = "<b>" + result + "</b>";
+	
+}
+
+</script>
+
+</head>
+<body>
+Enter the number : <input type = "number" id = "n">
+<button onclick="getFactorialTable()">FactorialTable</button>
+<div id="ResultDiv">
+</div>
+</body>
+</html>
