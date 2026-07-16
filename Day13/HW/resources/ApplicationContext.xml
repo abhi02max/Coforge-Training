@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="address" class="com.coforge.model.Address">
+		<property name="city" value="Yadadri"></property>
+		<property name="state" value="Telangana"></property>
+	</bean>
+
+	<bean id="student1" class="com.coforge.model.Student">
+		<property name="studentId" value="101"></property>
+		<property name="studentName" value="Neeraj"></property>
+		<property name="subjects">
+			<list>
+				<value>Java</value>
+				<value>Python</value>
+			</list>
+		</property>
+		<property name="skills">
+			<set>
+				<value>React</value>
+				<value>SpringBoot</value>
+			</set>
+		</property>
+		<property name="marks">
+			<map>
+				<entry key="Java" value="95" />
+				<entry key="Python" value="90" />
+			</map>
+		</property>
+		<property name="address" ref="address"></property>
+	</bean>
+
+</beans>

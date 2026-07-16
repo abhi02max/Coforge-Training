@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="employee1" class="com.coforge.model.Employee">
+		<property name="eid" value="101"></property>
+		<property name="ename" value="Valan"></property>
+		<property name="esalary" value="2000"></property>
+		<property name="dno" value="10"></property>
+		<property name="address" ref="address1"></property>
+		<property name="project" ref="project1"></property>
+		<!-- when we use setter method the class must contain default constructor 
+		since it is internally using setter methods to set values , but to set values
+		class attributes need to be intialized with default values so default constructor must be
+		present in the class-->
+	</bean>
+
+	<bean id="employee2" class="com.coforge.model.Employee">
+		<constructor-arg name="eid" value="102"></constructor-arg>
+		<constructor-arg name="ename" value="Raj"></constructor-arg>
+		<constructor-arg name="esalary" value="3000"></constructor-arg>
+		<constructor-arg name="dno" value="20"></constructor-arg>
+		<constructor-arg name="address" ref="address2"></constructor-arg>
+		<constructor-arg name="project" ref="project1"></constructor-arg>
+	</bean>
+
+
+ <!-- Employee has an Address (Address itself is another class instead of creating object at Employee directly we are creating here and accessing in Employee -->
+	<bean id="address1" class="com.coforge.model.Address">
+		<property name="city" value="Hyderabad"></property>
+		<property name="state" value="Telangana"></property>
+	</bean>
+	
+		<bean id="address2" class="com.coforge.model.Address">
+		<constructor-arg name="city" value="Chennai"></constructor-arg>
+		<constructor-arg name="state" value="Tamil Nadu"></constructor-arg>
+	</bean>
+	
+	<bean id="project1" class="com.coforge.model.Project">
+		<property name="pid" value="111"></property>
+		<property name="pname" value="CollegeManagement"></property>
+	</bean>
+</beans>
