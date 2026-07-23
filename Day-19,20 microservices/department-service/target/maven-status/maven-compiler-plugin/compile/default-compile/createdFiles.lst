@@ -1,0 +1,13 @@
+com\coforge\departmentservice\entity\Department$DepartmentBuilder.class
+com\coforge\departmentservice\repository\DepartmentRepository.class
+com\coforge\departmentservice\exception\DepartmentNotFoundException.class
+com\coforge\departmentservice\exception\ErrorDetails.class
+com\coforge\departmentservice\dto\DepartmentDTO.class
+com\coforge\departmentservice\dto\DepartmentDTO$DepartmentDTOBuilder.class
+com\coforge\departmentservice\service\impl\DepartmentServiceImpl.class
+com\coforge\departmentservice\entity\Department.class
+com\coforge\departmentservice\exception\ErrorDetails$ErrorDetailsBuilder.class
+com\coforge\departmentservice\DepartmentServiceApplication.class
+com\coforge\departmentservice\exception\GlobalExceptionHandler.class
+com\coforge\departmentservice\service\DepartmentService.class
+com\coforge\departmentservice\controller\DepartmentController.class
