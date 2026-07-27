@@ -1,0 +1,124 @@
+<h2>Employee Registration Form</h2>
+
+<!-- Form element bound with #empForm template variable -->
+<form #empForm="ngForm" (ngSubmit)="onSubmit(empForm)">
+
+  <!-- Employee ID -->
+  <div style="margin-bottom: 12px;">
+    <label for="empId"><strong>Employee ID *</strong></label><br />
+    <input 
+      type="number" 
+      id="empId" 
+      name="id" 
+      [(ngModel)]="employee.id" 
+      #idRef="ngModel" 
+      required />
+    <div *ngIf="idRef.invalid && idRef.touched" style="color: red; font-size: 12px;">
+      Employee ID is required.
+    </div>
+  </div>
+
+  <!-- Employee Name -->
+  <div style="margin-bottom: 12px;">
+    <label for="empName"><strong>Full Name *</strong></label><br />
+    <input 
+      type="text" 
+      id="empName" 
+      name="name" 
+      [(ngModel)]="employee.name" 
+      #nameRef="ngModel" 
+      required 
+      minlength="3" />
+    <div *ngIf="nameRef.invalid && nameRef.touched" style="color: red; font-size: 12px;">
+      <span *ngIf="nameRef.errors?.['required']">Name is required.</span>
+      <span *ngIf="nameRef.errors?.['minlength']">Name must be at least 3 characters long.</span>
+    </div>
+  </div>
+
+  <!-- Department -->
+  <div style="margin-bottom: 12px;">
+    <label for="dept"><strong>Department *</strong></label><br />
+    <select 
+      id="dept" 
+      name="department" 
+      [(ngModel)]="employee.department" 
+      #deptRef="ngModel" 
+      required>
+      <option value="">Select Department</option>
+      <option value="Development">Development</option>
+      <option value="Testing">Testing</option>
+      <option value="HR">HR</option>
+      <option value="Finance">Finance</option>
+    </select>
+    <div *ngIf="deptRef.invalid && deptRef.touched" style="color: red; font-size: 12px;">
+      Please select a department.
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div style="margin-bottom: 12px;">
+    <label for="empEmail"><strong>Email *</strong></label><br />
+    <input 
+      type="email" 
+      id="empEmail" 
+      name="email" 
+      [(ngModel)]="employee.email" 
+      #emailRef="ngModel" 
+      required 
+      email />
+    <div *ngIf="emailRef.invalid && emailRef.touched" style="color: red; font-size: 12px;">
+      Please enter a valid email address.
+    </div>
+  </div>
+
+  <!-- Salary -->
+  <div style="margin-bottom: 12px;">
+    <label for="empSalary"><strong>Salary *</strong></label><br />
+    <input 
+      type="number" 
+      id="empSalary" 
+      name="salary" 
+      [(ngModel)]="employee.salary" 
+      #salaryRef="ngModel" 
+      required 
+      min="0" />
+    <div *ngIf="salaryRef.invalid && salaryRef.touched" style="color: red; font-size: 12px;">
+      Salary is required and must be a positive number.
+    </div>
+  </div>
+
+  <!-- Joining Date -->
+  <div style="margin-bottom: 12px;">
+    <label for="empDate"><strong>Joining Date *</strong></label><br />
+    <input 
+      type="date" 
+      id="empDate" 
+      name="joiningDate" 
+      [(ngModel)]="employee.joiningDate" 
+      #dateRef="ngModel" 
+      required />
+    <div *ngIf="dateRef.invalid && dateRef.touched" style="color: red; font-size: 12px;">
+      Joining date is required.
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div style="margin-top: 15px;">
+    <button type="submit" [disabled]="empForm.invalid">Submit</button>
+    <button type="button" (click)="onReset(empForm)" style="margin-left: 10px;">Reset</button>
+  </div>
+
+</form>
+
+<hr style="margin-top: 20px;" />
+
+<!-- Display Submitted Details Section -->
+<div *ngIf="submittedEmployee" style="border: 1px solid #ccc; padding: 12px; margin-top: 15px;">
+  <h3>Registered Employee Details</h3>
+  <p><strong>ID:</strong> {{ submittedEmployee.id }}</p>
+  <p><strong>Name:</strong> {{ submittedEmployee.name }}</p>
+  <p><strong>Department:</strong> {{ submittedEmployee.department }}</p>
+  <p><strong>Email:</strong> {{ submittedEmployee.email }}</p>
+  <p><strong>Salary:</strong> ₹{{ submittedEmployee.salary }}</p>
+  <p><strong>Joining Date:</strong> {{ submittedEmployee.joiningDate }}</p>
+</div>

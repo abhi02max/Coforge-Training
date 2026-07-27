@@ -1,0 +1,32 @@
+<h2>Event Registration Form</h2>
+
+<form (submit)="$event.preventDefault()">
+  <div>
+    <label>Name: </label>
+    <input #name type="text" placeholder="Enter name" />
+  </div>
+
+  <div>
+    <label>Email: </label>
+    <input #email type="email" placeholder="Enter email" />
+  </div>
+
+  <div>
+    <label>Course: </label>
+    <input #course type="text" placeholder="Enter course" />
+  </div>
+
+  <br />
+
+  <!-- Event Binding: (click) handles button click events -->
+  <button type="button" (click)="register(name.value, email.value, course.value)">
+    Register
+  </button>
+  
+  <button type="button" (click)="reset(name, email, course)">
+    Reset
+  </button>
+</form>
+
+<!-- Displays 'Registration Successful' on Register click -->
+<h3 *ngIf="registrationMessage">{{ registrationMessage }}</h3>

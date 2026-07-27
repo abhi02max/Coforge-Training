@@ -1,0 +1,27 @@
+<h1 class="MyHeading"> Welcome to Angular</h1>
+<b>Angular One Way Data Binding : Interpolation </b>
+<br>
+<br><b [ngStyle] = "myStyle">Name : {{name}}</b>
+<br><b [ngClass] = "myClass">Name : {{name}}</b>
+<br>Age : {{age}}
+<br>Email : {{email}}
+<br>Email : <input type = "text" value = {{email}} />
+<br>Addition : {{getAddition(10, 20)}}
+<br><img src = {{imagepath}} alt="smiley" height = {{height}} width = {{width}}/>
+<br>
+<b>Angular One Way Data Binding : Property Binding</b>
+<br>
+<br>Email : <input type = "text" [value] = "email" />
+<br><img [src] = "imagepath" alt="smiley" [height] = "height" [width] = "width"/>
+<br>
+<b>Angular One Way Data Binding : Event Binding</b>
+<br><br>
+<button (click)="changeName()">Change Name</button>
+<button (click)="zoomInOut()">Zoom In Out</button>
+<br><br>
+<b>Angular Two Way Data Binding</b>
+<br><br>
+Enter your name : <input type="text" [(ngModel)]="fname"/>
+<br>
+Welcome {{fname}}
+<app-child1></app-child1>

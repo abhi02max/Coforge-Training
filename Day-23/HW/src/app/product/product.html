@@ -1,0 +1,10 @@
+<div class="product-card">
+  <!-- Property binding for dynamic attribute paths -->
+  <img [src]="image" [alt]="productName" width="200" />
+
+  <!-- Interpolation for text rendering -->
+  <h2>{{ productName }}</h2>
+  <p>Brand: {{ brand }} ({{ category }})</p>
+  <h3>Price: ₹{{ price }}</h3>
+  <p>Availability: {{ isAvailable ? 'In Stock' : 'Out of Stock' }}</p>
+</div>
