@@ -1,0 +1,13 @@
+.header {
+    color: red;
+    border: 2px solid purple;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.content {
+    color: red;
+    border: 2px solid purple;
+    text-align: center;
+    border-radius: 15px;
+}

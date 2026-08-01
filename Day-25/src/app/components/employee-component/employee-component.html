@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Employee Management System</title>
+    <link href="employee-component.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="./AjaxScript.js"></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <h2>Employee Management System</h2>
+    </div>
+    <br />
+    <form #employeeForm="ngForm">
+      <div class="content">
+        <table class="table-hover">
+          <tr>
+            <td>Employee ID :</td>
+            <td><input type="number" name="eid" id="eid" #eid="ngModel" ngModel /><br /></td>
+          </tr>
+          <tr>
+            <td>Employee Name :</td>
+            <td><input type="text" name="ename" id="ename" #ename="ngModel" ngModel /><br /></td>
+          </tr>
+          <tr>
+            <td>Employee Salary :</td>
+            <td>
+              <input type="number" name="esalary" id="esalary" #esalary="ngModel" ngModel /><br />
+            </td>
+          </tr>
+          <tr>
+            <td>Department Number :</td>
+            <td><input type="number" name="dno" id="dno" #dno="ngModel" ngModel /><br /></td>
+          </tr>
+        </table>
+        <br />
+        <input
+          type="submit"
+          value="Save"
+          class="btn-primary"
+          name="emsButton"
+          (click)="saveEmployee(employeeForm.value)"
+        />
+        &nbsp;&nbsp;
+        <input type="submit" value="Update" class="btn-warning" name="emsButton" (click)="updateEmployee(employeeForm.value)"/> &nbsp;&nbsp;
+        <input type="submit" value="Delete" class="btn-danger" name="emsButton" (click)="deleteEmployee(employeeForm.value)"/> &nbsp;&nbsp;
+        <input type="submit" value="Find" class="btn-success" name="emsButton" (click)="findEmployee(employeeForm.value)" /> &nbsp;&nbsp;
+        <input type="submit" value="FindAll" class="btn-info" name="emsButton" (click)="findAllEmployees()"/>
+        <br />
+      </div>
+    </form>
+    <div class="alert alert-info">
+      <b>{{ result }}</b>
+    </div>
+    <br>
+    @if(employee.eid){
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr class="alert-info">
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Salary</th>
+            <th>Employee Dno</th>
+          </tr>
+        </thead>
+          <tbody>
+            <tr>
+              <td>{{employee.eid}}</td>
+              <td>{{employee.ename}}</td>
+              <td>{{employee.esalary}}</td>
+              <td>{{employee.dno}}</td>
+            </tr>
+          </tbody>
+
+      </table>
+    }
+    <br>
+    @if(employees.length>0){
+      <table class="table table-bordered table-hover">
+        <thead class="alert-info">
+          <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Salary</th>
+            <th>Employee Dno</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for(emp of employees;track emp.eid){
+            <tr>
+              <td>{{emp.eid}}</td>
+              <td>{{emp.ename}}</td>
+              <td>{{emp.esalary}}</td>
+              <td>{{emp.dno}}</td>
+            </tr>
+          }
+        </tbody>
+
+      </table>
+    }
+
+  </body>
+</html>
